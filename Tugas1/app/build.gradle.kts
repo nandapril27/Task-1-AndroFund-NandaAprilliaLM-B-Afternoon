@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-parcelize")
+
 }
 
 android {
@@ -26,6 +28,12 @@ android {
             )
         }
     }
+
+        buildFeatures {
+            dataBinding = true
+            viewBinding = true
+        }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
