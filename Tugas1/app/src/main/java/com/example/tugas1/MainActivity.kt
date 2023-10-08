@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.tugas1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var tv:TextView
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        var binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.btnFragment1.setOnClickListener {replaceFragment(Fragment_1())}
