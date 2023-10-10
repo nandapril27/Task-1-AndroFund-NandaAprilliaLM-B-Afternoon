@@ -25,8 +25,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         tv = findViewById(R.id.textView2)
 
         val username =intent.getParcelableExtra<User>("User")?.username
-        val password =intent.getParcelableExtra<User>("Password")?.password
-        tv.text = "Username: $username dan Password: $password"
+        val password =intent.getParcelableExtra<User>("User")?.password
+        tv.text = "Username : $username dan Password : $password"
 
         val btnImplicit : Button = findViewById(R.id.btn_implicit)
         btnImplicit.setOnClickListener(this)

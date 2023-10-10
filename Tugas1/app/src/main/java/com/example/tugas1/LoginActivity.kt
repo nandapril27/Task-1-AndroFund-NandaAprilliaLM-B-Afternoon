@@ -12,8 +12,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var etUsername: EditText
-    private lateinit var etPassword:EditText
+    private lateinit var etUsername : EditText
+    private lateinit var etPassword :EditText
     private lateinit var history: TextView
 
     val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
