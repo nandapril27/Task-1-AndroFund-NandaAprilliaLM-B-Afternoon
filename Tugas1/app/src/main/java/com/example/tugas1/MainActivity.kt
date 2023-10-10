@@ -7,10 +7,13 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentContainerView
 import com.example.tugas1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+    private lateinit var binding: ActivityMainBinding
     private lateinit var tv:TextView
+    private lateinit var fragmentContainer: FragmentContainerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,11 +21,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         var binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnFragment1.setOnClickListener {replaceFragment(Fragment_1())}
-        binding.btnFragment2.setOnClickListener {replaceFragment(Fragment_2())}
-
-
-        tv = findViewById(R.id.textView2)
+        tv = binding.textView2
+        fragmentContainer = binding.fragmentContainerView
 
         val username =intent.getParcelableExtra<User>("User")?.username
         val password =intent.getParcelableExtra<User>("User")?.password
@@ -30,6 +30,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val btnImplicit : Button = findViewById(R.id.btn_implicit)
         btnImplicit.setOnClickListener(this)
+
+        binding.btnFragment1.setOnClickListener {replaceFragment(Fragment_1())}
+        binding.btnFragment2.setOnClickListener {replaceFragment(Fragment_2())}
+
     }
     private fun replaceFragment(fragment: Fragment){
         val fragmentManager = supportFragmentManager
